@@ -91,11 +91,15 @@ class Solution {
         for (int[] direction : directions) {
             int p = i + direction[0];
             int q = j + direction[1];
-            if (p < 0 || q < 0 || p > height - 1 || q > width - 1 || board[p][q] != 'O') {
-                continue; // don't use "return" here !
-            } else {
+            if (p > -1 && q > -1 && p < height && q < width && board[p][q] == 'O') {
                 markDFS(p, q, board);
             }
+
+            // if (p < 0 || q < 0 || p > height - 1 || q > width - 1 || board[p][q] != 'O') {
+            //     continue; // don't use "return" here !
+            // } else {
+            //     markDFS(p, q, board);
+            // }
         }
     }
 
@@ -117,14 +121,21 @@ class Solution {
                 for (int[] direction : directions) {
                     int p = x + direction[0];
                     int q = y + direction[1];
-                    if (p < 0 || q < 0 || p > height - 1 || q > width - 1 || board[p][q] != 'O') {
-                        continue;
-                    } else {
+                    if (p > -1 && q > -1 && p < height && q < width && board[p][q]=='O') {
                         board[p][q] = 'M'; // this line is very important. Without this line to remember which nodes
                                            // have been visited,
                         // the speed would be very slow, because it would do many redundant work
-                        queue.add(p * width + q);
+                        queue.add(p * width + q);                        
                     }
+
+                    // if (p < 0 || q < 0 || p > height - 1 || q > width - 1 || board[p][q] != 'O') {
+                    //     continue;
+                    // } else {
+                    //     board[p][q] = 'M'; // this line is very important. Without this line to remember which nodes
+                    //                        // have been visited,
+                    //     // the speed would be very slow, because it would do many redundant work
+                    //     queue.add(p * width + q);
+                    // }
                 }
             }
         }
