@@ -2,6 +2,8 @@ import java.util.HashMap;
 
 package 2Sum;
 
+// https://leetcode.com/problems/two-sum/description/
+
 class Solution {
     public int[] twoSum(int[] nums, int target) {
         HashMap<Integer, Integer> valIdx = new HashMap<>();
