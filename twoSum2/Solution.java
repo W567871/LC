@@ -1,4 +1,4 @@
-package 2Sum2;
+package twoSum2;
 
 // https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
 
@@ -10,6 +10,9 @@ class Solution {
             int sum = numbers[left] + numbers[right];
             if (sum == target && right - left > 0) {
                 return new int[] { ++left, ++right};
+                // no need to move the pointers after match, since the probem 
+                // is guaranteed that only ONE solution exists:
+                // "The tests are generated such that there is exactly one solution"
             }
             else if (sum < target) {
                 left++;
