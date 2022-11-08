@@ -2,32 +2,34 @@ package fourSum;
 
 import java.util.*;
 
-class Solution {
+class Solution2 {
 
+    //Difference between Solution and Solution2 is that Solution2 is using one 
+    // list "quad" to store all internal results between steps, which reuse the
+    // the same list but needs more cleanup (remove()) after each step
     public static void main(String[] args) {
 
-        Solution sol = new Solution();
+        Solution2 sol = new Solution2();
 
         // Four Leetcode test cases eventually help get all bugs fixed !
-        sol.fourSum(new int[] {1,0,-1,0,-2,2}, 0);
+        //sol.fourSum(new int[] {1,0,-1,0,-2,2}, 0);
         // sol.fourSum(new int[] {2,2,2,2}, 8);        
-        //sol.fourSum(new int[] {2,2,2,2,2}, 8);        
-        //sol.fourSum(new int[] {1000000000,1000000000,1000000000,1000000000}, -294967296);                
+         sol.fourSum(new int[] {2,2,2,2,2}, 8);        
+        // sol.fourSum(new int[] {1000000000,1000000000,1000000000,1000000000}, -294967296);                
     }
 
-    //target needs to be long becuase each numbers can have 10 digits, and calcution
-    // may cause overflow !
     public List<List<Integer>> fourSum(int[] nums, long target) {
         int k = 4;
         List<List<Integer>> results = new ArrayList<>();
         Arrays.sort(nums);
+        List<Integer> quad = new ArrayList<>();
 
-        kSum(nums, target, results, k, 0);
+        kSum(nums, target, results, k, 0, quad);
 
         return results;
     }
 
-    private void kSum(int[] nums, long target, List<List<Integer>> results, int k, int start) {
+    private void kSum(int[] nums, long target, List<List<Integer>> results, int k, int start, List<Integer> quad) {
         if (k>2) {
                 for (int i = start; i < nums.length - 2; ++i ) {
                     
@@ -45,21 +47,15 @@ class Solution {
                         continue;
                     }
 
-                    // Each level needs to have its own result container
-                    List<List<Integer>> subResults = new ArrayList<>();
+                    // use the same "quad" list to store each matching result
+                    quad.add(nums[i]); 
 
                     // Recursive to k-1 level if level > 2
-                    kSum(nums, target - nums[i], subResults, k-1, i + 1);
+                    kSum(nums, target - nums[i], results, k-1, i + 1, quad);
 
-                    if (subResults.size() > 0) {
-                        final int val = nums[i];
-
-                        // add the current index value to every matching result
-                        // from k-1 level  
-                        subResults.forEach(e -> e.add(val));
-                        results.addAll(subResults);
-                } 
-            }
+                    // pop the last value from quad list
+                    quad.remove(quad.size()-1);
+                }            
         }
         else if (k == 2) {
             // when recursion reaches the last 2 levels, use 2Sum pointer solution
@@ -73,7 +69,6 @@ class Solution {
                     continue;
                 }
 
-                //Sum needs to long because of int overflow issues
                 long sum = nums[l] + nums[r];
                 if (sum < target) {
                     l++;
@@ -81,10 +76,17 @@ class Solution {
                 else if (sum > target) {
                     r--;
                 } else {
-                    List<Integer> subList = new ArrayList<>();
-                    subList.add(nums[l]);
-                    subList.add(nums[r]);
-                    results.add(subList);
+
+                    // add two matching 2Sum values to quad
+                    quad.add(nums[l]);
+                    quad.add(nums[r]);
+
+                    results.add(new ArrayList<>(quad));
+
+                    // pop the matching 2Sum values out, so quad it's ready for 
+                    // storing the next matching 2Sum values
+                    quad.remove(quad.size()-1);
+                    quad.remove(quad.size()-1);
 
                     // This is to move the left pointer forward after found the matching
                     // 2Sum results. This inner pointer move is different from the outer
