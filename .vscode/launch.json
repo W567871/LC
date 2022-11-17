@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Solution",
+            "request": "launch",
+            "mainClass": "palindroePartitioning.Solution",
+            "projectName": "LC_5c0f9ddb"
+        },
+        {
+            "type": "java",
             "name": "Launch Solution2",
             "request": "launch",
             "mainClass": "fourSum.Solution2",
