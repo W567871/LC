@@ -9,6 +9,13 @@
             "name": "Launch Solution",
             "request": "launch",
             "mainClass": "palindroePartitioning.Solution",
+            "projectName": "LC_7d41f913"
+        },
+        {
+            "type": "java",
+            "name": "Launch Solution",
+            "request": "launch",
+            "mainClass": "palindroePartitioning.Solution",
             "projectName": "LC_5c0f9ddb"
         },
         {
