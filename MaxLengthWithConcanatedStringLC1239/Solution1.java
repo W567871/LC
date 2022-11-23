@@ -1,51 +1,45 @@
 package MaxLengthWithConcanatedStringLC1239;
-
 import java.util.*;
 
-// https://leetcode.com/problems/maximum-length-of-a-concatenated-string-with-unique-characters/submissions/848266206/
-// https://www.youtube.com/watch?v=d4SPuvkaeoo&t=52s
+// https://leetcode.com/problems/maximum-length-of-a-concatenated-string-with-unique-characters/submissions/848334040/
 
-// Solution2 has a better solution than Solution by not using "count" parameter, but basic idea is the same
+// Solution1 is an improvement of Solution, which removed unnessary "count" parameter from dfs() method, because charSet.size()
+// will able to return the correct character count, no need to use a sepearte variable to track it. 
+// Inspiration was from Neetcode: https://www.youtube.com/watch?v=d4SPuvkaeoo&t=52s
 
+public class Solution1 {
 
-public class Solution {
     int maxLen;
     List<String> arr;
-    Set<Character> charSet = new HashSet<>() {
-        
-    };
+    Set<Character> charSet = new HashSet<>();
 
     public int maxLength(List<String> arr) {
         this.arr = arr;
         
-        return dfs(0, 0);
+        return dfs(0);
     }
 
     // Decision tree dfs based on try to add next element string or not add next element to generate all possible combinations
-    private int dfs(int pos, int count) {
+    private int dfs(int pos) {
         
         // all "arr" elements have been used now, so has reached tree leaf and need to return
         if (pos == arr.size()) {
             return charSet.size();
         }
 
-        int countAdd;
-
         // max count if not try to concatenate arr[pos] element string  
-        int countNotAdd = dfs(pos + 1, count);
+        int countNotAdd = dfs(pos + 1);
+
+        int countAdd = countNotAdd;
 
         //max count if try to concatenate arr[pos] string
         if (canAdd(arr.get(pos))) {
             addStr(arr.get(pos));
 
-            countAdd = dfs(pos + 1, count + arr.get(pos).length());
+            countAdd = dfs(pos + 1);
             
             // backtracking to try other positions
             removeStr(arr.get(pos));
-        } else {
-            
-            // if can't add, then count doesn't change 
-            countAdd = count;
         } 
                 
         // return the greater of two choices (add/not add)
@@ -85,6 +79,5 @@ public class Solution {
             charSet.remove(c);
         }
     }
-
-
+    
 }
