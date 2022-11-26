@@ -5,6 +5,9 @@
 # Based on Neetcode's code plus optimization from comments by Rg Prasad
 # https://www.youtube.com/watch?v=mBk4I0X46oI&list=PLot-Xpze53lf5C3HSjCnyFghlW0G1HHXo&index=16
 
+from typing import List
+
+
 class Solution:
     def canPartitionKSubsets(self, nums: List[int], k: int) -> bool:
         
@@ -42,3 +45,7 @@ class Solution:
             return False
         
         return dfs(0, target, k)
+    
+    
+s = Solution()
+print(" result =", s.canPartitionKSubsets([10, 10, 7, 8, 10, 4, 9, 7, 9, 10, 4, 6, 7, 1, 8, 5], 5))    
