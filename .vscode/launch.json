@@ -6,6 +6,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Solution4",
+            "request": "launch",
+            "mainClass": "partitionToKEqualSumLC698.Solution4",
+            "projectName": "LC_5c0f9ddb"
+        },
+        {
+            "type": "java",
+            "name": "Launch Solution3",
+            "request": "launch",
+            "mainClass": "partitionToKEqualSumLC698.Solution3",
+            "projectName": "LC_5c0f9ddb"
+        },
+        {
+            "type": "java",
+            "name": "Launch Solution2",
+            "request": "launch",
+            "mainClass": "partitionToKEqualSumLC698.Solution2",
+            "projectName": "LC_5c0f9ddb"
+        },
+        {
+            "type": "java",
+            "name": "Launch Solution",
+            "request": "launch",
+            "mainClass": "partitionToKEqualSumLC698.Solution",
+            "projectName": "LC_5c0f9ddb"
+        },
+        {
+            "type": "java",
             "name": "Launch Solution",
             "request": "launch",
             "mainClass": "palindroePartitioning.Solution",
