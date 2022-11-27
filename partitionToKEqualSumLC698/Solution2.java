@@ -2,6 +2,13 @@ package partitionToKEqualSumLC698;
 
 import java.util.*;
 
+// https://leetcode.com/problems/partition-to-k-equal-sum-subsets/description/
+// https://www.youtube.com/watch?v=mBk4I0X46oI&list=PLot-Xpze53lf5C3HSjCnyFghlW0G1HHXo&index=16 (Python)
+
+// This version was trying to resolve TLE error in previous Solution.java by introducing caching as discussed in 
+// the comments of Neetcode's video. The idea was trying to cache the intermediatary computing results (memoizing)
+// in order to improve performance.
+
 public class Solution2 {
 
     public static void main(String[] args) {
