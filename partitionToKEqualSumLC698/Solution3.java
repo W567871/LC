@@ -2,6 +2,11 @@ package partitionToKEqualSumLC698;
 
 import java.util.*;
 
+
+// Tried to solve TLE issue in Solution.java by improving performance
+// Use Set<Integer> for "usedNums", instead of List<Integer> in Solution.java
+// But the performance is better, still too slow to pass TLE 
+
 public class Solution3 {
 
     public static void main(String[] args) {

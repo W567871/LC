@@ -2,10 +2,21 @@ package partitionToKEqualSumLC698;
 
 import java.util.*;
 
+// This version is similar to Solution4.java, but instead of using binary decision tree, Solution5 is using the decision tree equavalent for-loop based iterative recursion, which should be a little bit more efficient than binary decision tree, because for-loop reduced the total number of recursive calls. But this for-loop apporach is exactly equavalent to the non for-loop binary tree Solution4.
+
+// This version also has the unused previous value optimization (nums[i] == nums[i - 1] && !usedNums[i - 1])
+// So far, Solution5 is the fasted solution: about 6 ms run time 
+// the speed of Solution5 and Solution6 are about the same, both are around 6-7 ms.
+
+// https://leetcode.com/problems/partition-to-k-equal-sum-subsets/submissions/849938921/
+// Runtime 6 ms Beats 88.58% Memory 40 MB Beats 87.20%
+
+
+
 public class Solution5 {
 
     public static void main(String[] args) {
-        Solution3 solution = new Solution3();
+        Solution5 solution = new Solution5();
         // boolean res = solution.canPartitionKSubsets(new int[] {4,3,2,3,5,2,1}, 4);
         // boolean res = solution.canPartitionKSubsets(new int[] {2,2,2,2,3,4,5}, 4);
         // boolean res = solution.canPartitionKSubsets(new int[] {1,1,1,1,2,2,2,2}, 4);

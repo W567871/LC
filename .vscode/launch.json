@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Solution8",
+            "request": "launch",
+            "mainClass": "partitionToKEqualSumLC698.Solution8",
+            "projectName": "LC_5c0f9ddb"
+        },
+        {
+            "type": "java",
+            "name": "Launch Solution7",
+            "request": "launch",
+            "mainClass": "partitionToKEqualSumLC698.Solution7",
+            "projectName": "LC_5c0f9ddb"
+        },
+        {
+            "type": "java",
             "name": "Launch Solution4",
             "request": "launch",
             "mainClass": "partitionToKEqualSumLC698.Solution4",
