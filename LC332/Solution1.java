@@ -2,7 +2,7 @@ package LC332;
 
 import java.util.*;
 
-// https://leetcode.com/problems/reconstruct-itinerary/submissions/875136049/
+// https://leetcode.com/problems/reconstruct-itinerary/submissions/875646440/
 
 //references: https://www.youtube.com/watch?v=WYqsg5dziaQ&t=6s
 // https://www.youtube.com/watch?v=vFC5AzIS4Zs&t=2s
@@ -42,7 +42,7 @@ class Solution1 {
         // Make code more readable by using helper method "addTicket" 
         Arrays.stream(input).forEach(e -> addTicket(tickets, e));
 
-        Solution s = new Solution();
+        Solution1 s = new Solution1();
         s.findItinerary(tickets);
     }
 
