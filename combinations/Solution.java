@@ -6,6 +6,12 @@ import java.util.*;
 
 public class Solution {
 
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        List<List<Integer>> res =solution.combine(5, 3);
+        System.out.println(res);
+    }
+
     public List<List<Integer>> combine(int n, int k) {        
         List<Integer> combNums = new ArrayList<>();
         List<List<Integer>> results = new ArrayList<>();
